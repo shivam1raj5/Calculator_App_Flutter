@@ -38,7 +38,46 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
   double resultFontSize = 48.0;
   buttonPressed(String buttonText){
     setState(() {
-      
+      if(buttonText == "C"){
+        equation ="0";
+        result = "0";
+        equationFontSize = 38.0;
+        resultFontSize = 48.0;
+
+      }else if(buttonText == "X"){
+        equationFontSize = 38.0;
+        resultFontSize = 48.0;
+        equation = equation.substring(0, equation.length-1);
+        if(equation == ""){
+          equation ="0";
+        }
+
+      }else if(buttonText == "="){
+        equationFontSize = 38.0;
+        resultFontSize = 48.0;
+
+        expression = equation;
+        expression = expression.replaceAll("x", '*');
+        expression = expression.replaceAll("÷", '/');
+
+        try{
+          Parser p = Parser();
+          Expression exp = p.parse(expression);
+          ContextModel  cm  = ContextModel();
+          result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+        }catch(e){
+          result = "Error";
+        }
+
+      }else{
+        equationFontSize = 38.0;
+        resultFontSize = 48.0;
+        if(equation =="0"){
+          equation = buttonText;
+        }else {
+          equation = equation + buttonText;
+        }
+      }
 
     });
   }
