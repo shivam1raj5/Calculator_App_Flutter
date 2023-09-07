@@ -101,7 +101,49 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                   width: MediaQuery.of(context).size.width *.75,
                   child: Table(
                     children: [
-                      
+                      TableRow(
+                          children: [
+                            buildButton("C",1,  const Color.fromARGB(192,192,192,0)),
+                            buildButton("X",1, Colors.blue),
+                            buildButton("÷",1, Colors.blue),
+
+                          ]
+                      ),
+                      TableRow(
+                          children: [
+                            buildButton("7",1, Colors.black45),
+                            buildButton("8",1, Colors.black45),
+                            buildButton("9",1, Colors.black45),
+
+                          ]
+                      ),
+                      TableRow(
+                          children: [
+                            buildButton("4",1, Colors.black45),
+                            buildButton("5",1, Colors.black45),
+                            buildButton("6",1, Colors.black45),
+
+                          ]
+                      ),
+
+
+                      TableRow(
+                          children: [
+                            buildButton("1",1, Colors.black45),
+                            buildButton("2",1, Colors.black45),
+                            buildButton("3",1, Colors.black45),
+
+                          ]
+                      ),
+
+                      TableRow(
+                          children: [
+                            buildButton(".",1, Colors.black45),
+                            buildButton("0",1, Colors.black45),
+                            buildButton("00",1, Colors.black45),
+
+                          ]
+                      ),
                     ],
                   ),
                 ),
